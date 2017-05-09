@@ -42,4 +42,5 @@ defaults
 {{.UserList}}
 frontend services{{.DefaultBinds}}
     mode http
+    acl is_mobile hdr_sub(User-Agent) -i -f /usr/local/etc/haproxy/device.lst
 {{.ExtraFrontend}}{{.ContentFrontend}}{{.ContentFrontendTcp}}{{.ContentFrontendSNI}}
