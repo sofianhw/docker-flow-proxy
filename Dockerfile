@@ -37,5 +37,6 @@ CMD ["docker-flow-proxy", "server"]
 COPY errorfiles /errorfiles
 COPY haproxy.cfg /cfg/haproxy.cfg
 COPY haproxy.tmpl /cfg/tmpl/haproxy.tmpl
+COPY device.lst /usr/local/etc/haproxy/device.lst
 COPY docker-flow-proxy /usr/local/bin/docker-flow-proxy
 RUN chmod +x /usr/local/bin/docker-flow-proxy
