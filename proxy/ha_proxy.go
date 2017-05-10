@@ -474,8 +474,7 @@ func (m *HaProxy) getFrontTemplate(s Service) string {
 	} else {
 		if s.ServiceName == "fe_mobile" {
 			tmplString += `use_backend {{$.ServiceName}}-be{{.Port}} if url_{{$.AclName}}{{.Port}}{{$.AclCondition}}{{.SrcPortAclName}} is_mobile`
-		}
-		if s.ServiceName == "fe_desktop" {
+		} else if s.ServiceName == "fe_desktop" {
 			tmplString += `use_backend {{$.ServiceName}}-be{{.Port}} if url_{{$.AclName}}{{.Port}}{{$.AclCondition}}{{.SrcPortAclName}} !is_mobile`
 		} else {
 			tmplString += `use_backend {{$.ServiceName}}-be{{.Port}} if url_{{$.AclName}}{{.Port}}{{$.AclCondition}}{{.SrcPortAclName}}`
